@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gupao.vip.mapper.InsertSpeedMapper" >
+  <resultMap id="BaseResultMap" type="com.gupao.vip.pojo.InsertSpeed" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="createDate" property="createDate" jdbcType="TIMESTAMP"/>
+    <result column="createBy" property="createBy" jdbcType="VARCHAR" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="job" property="job" jdbcType="VARCHAR" />
+    <result column="grade" property="grade" jdbcType="INTEGER" />
+    <result column="high" property="high" jdbcType="VARCHAR" />
+    <result column="weight" property="weight" jdbcType="DOUBLE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, createDate, createBy, age, sex, job, grade, high, weight
+  </sql>
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+    insert into insert_speed ( name, createDate,
+      createBy, age, sex, 
+      job, grade, high, weight
+      )
+    values ( #{name,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP},
+      #{createBy,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, #{sex,jdbcType=VARCHAR},
+      #{job,jdbcType=VARCHAR}, #{grade,jdbcType=INTEGER}, #{high,jdbcType=VARCHAR}, #{weight,jdbcType=DOUBLE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gupao.vip.pojo.InsertSpeed" >
+    insert into insert_speed
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="createDate != null" >
+        createDate,
+      </if>
+      <if test="createBy != null" >
+        createBy,
+      </if>
+      <if test="age != null" >
+        age,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="job != null" >
+        job,
+      </if>
+      <if test="grade != null" >
+        grade,
+      </if>
+      <if test="high != null" >
+        high,
+      </if>
+      <if test="weight != null" >
+        weight,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="job != null" >
+        #{job,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null" >
+        #{grade,jdbcType=INTEGER},
+      </if>
+      <if test="high != null" >
+        #{high,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null" >
+        #{weight,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+
+  <insert id="insertList" useGeneratedKeys="true" keyProperty="id">
+    insert into insert_speed (name, createDate, createBy, age, sex, job, grade, high, weight) values
+    <foreach item="item" collection="list" separator=",">
+      (#{item.name}, #{item.createDate}, #{item.createBy}, #{item.age},
+      #{item.sex}, #{item.job}, #{item.grade}, #{item.high}, #{item.weight})
+    </foreach>
+  </insert>
+
+</mapper>

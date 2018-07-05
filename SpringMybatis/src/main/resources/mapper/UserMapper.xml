@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gupao.vip.mapper.UserMapper">
+
+    <!--嵌套查询 start-->
+  <resultMap id="BaseResultMap1" type="com.gupao.vip.pojo.User">
+    <id column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+    <association property="role" column="user_id"
+                 select="com.gupao.vip.mapper.RoleMapper.selectByPrimaryKey"/>
+  </resultMap>
+
+  <sql id="Base_Column_Clause">
+      user_id, user_name
+  </sql>
+
+  <select id="selectUserAndRole1" parameterType="java.lang.String" resultMap="BaseResultMap1">
+      SELECT
+        <include refid="Base_Column_Clause"/>
+      FROM
+        gp_user
+      WHERE user_id = #{userId}
+  </select>
+    <!--嵌套查询 end-->
+
+
+    <!--嵌套结果 start-->
+    <resultMap id="BaseResultMap2" type="com.gupao.vip.pojo.User">
+        <id column="user_id" jdbcType="VARCHAR" property="userId" />
+        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+        <association property="role" javaType="com.gupao.vip.pojo.Role" >
+            <id column="role_id" jdbcType="VARCHAR" property="roleId" />
+            <id column="user_id" jdbcType="VARCHAR" property="userId" />
+            <result column="role_name" jdbcType="VARCHAR" property="roleName" />
+        </association>
+    </resultMap>
+
+    <select id="selectUserAndRole2" parameterType="java.lang.String" resultMap="BaseResultMap2">
+        SELECT
+          gu.user_id,
+          gu.user_name,
+          gr.role_id,
+          gr.role_name
+        FROM
+          gp_user gu,gp_role gr
+        WHERE gu.user_id = #{userId}
+        and gu.user_id = gr.user_id
+    </select>
+    <!--嵌套结果 end-->
+
+
+
+
+</mapper>

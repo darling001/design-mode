@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gupao.vip.mapper.PeopleMapper">
+
+    <resultMap id="AopTestMap" type="com.gupao.vip.pojo.People">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="age" jdbcType="INTEGER" property="age" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="sex" jdbcType="VARCHAR" property="sex" />
+        <result column="job" jdbcType="VARCHAR" property="job" />
+    </resultMap>
+
+
+    <select id="selectPeople" resultMap="AopTestMap">
+        SELECT * FROM people
+        <where>
+            <if test="id != null">
+                id = #{id}
+            </if>
+            <if test="age != null">
+                AND age = #{age}
+            </if>
+            <if test="name != null">
+                AND name= #{name}
+            </if>
+            <if test="sex != null">
+                AND sex = #{sex}
+            </if>
+            <if test="job != null">
+                AND job = #{job}
+            </if>
+        </where>
+    </select>
+
+
+</mapper>

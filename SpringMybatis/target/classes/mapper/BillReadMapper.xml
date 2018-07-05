@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gupao.vip.mapper.BillReadMapper">
+  <resultMap id="BaseResultMap" type="com.gupao.vip.pojo.BillRead">
+    <result column="BILL_ID" jdbcType="CHAR" property="billId" />
+    <result column="BILL_TYPE" jdbcType="VARCHAR" property="billType" />
+    <result column="COMPANY_ID" jdbcType="CHAR" property="companyId" />
+    <result column="COMPANY_NAME" jdbcType="VARCHAR" property="companyName" typeHandler="com.gupao.vip.handler.StringHandler"/>
+    <result column="ACCOUNT_ID" jdbcType="CHAR" property="accountId" />
+    <result column="ACCOUNT_NAME" jdbcType="VARCHAR" property="accountName" />
+    <result column="OPERATOR_TYPE" jdbcType="VARCHAR" property="operatorType" />
+    <result column="OPERATOR_USER_ID" jdbcType="CHAR" property="operatorUserId" />
+    <result column="OPERATOR_USER_NAME" jdbcType="VARCHAR" property="operatorUserName" />
+    <result column="OPERATOR_USER_TIME" jdbcType="TIMESTAMP" property="operatorUserTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    BILL_ID, BILL_TYPE, COMPANY_ID, COMPANY_NAME, ACCOUNT_ID, ACCOUNT_NAME, OPERATOR_TYPE, 
+    OPERATOR_USER_ID, OPERATOR_USER_NAME, OPERATOR_USER_TIME
+  </sql>
+  <insert id="insert" parameterType="com.gupao.vip.pojo.BillRead">
+    insert into ext_bill_read (BILL_ID, BILL_TYPE, COMPANY_ID, 
+      COMPANY_NAME, ACCOUNT_ID, ACCOUNT_NAME, 
+      OPERATOR_TYPE, OPERATOR_USER_ID, OPERATOR_USER_NAME, 
+      OPERATOR_USER_TIME)
+    values (#{billId,jdbcType=CHAR}, #{billType,jdbcType=VARCHAR}, #{companyId,jdbcType=CHAR}, 
+      #{companyName,jdbcType=VARCHAR}, #{accountId,jdbcType=CHAR}, #{accountName,jdbcType=VARCHAR}, 
+      #{operatorType,jdbcType=VARCHAR}, #{operatorUserId,jdbcType=CHAR}, #{operatorUserName,jdbcType=VARCHAR}, 
+      #{operatorUserTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gupao.vip.pojo.BillRead">
+    insert into ext_bill_read
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="billId != null">
+        BILL_ID,
+      </if>
+      <if test="billType != null">
+        BILL_TYPE,
+      </if>
+      <if test="companyId != null">
+        COMPANY_ID,
+      </if>
+      <if test="companyName != null">
+        COMPANY_NAME,
+      </if>
+      <if test="accountId != null">
+        ACCOUNT_ID,
+      </if>
+      <if test="accountName != null">
+        ACCOUNT_NAME,
+      </if>
+      <if test="operatorType != null">
+        OPERATOR_TYPE,
+      </if>
+      <if test="operatorUserId != null">
+        OPERATOR_USER_ID,
+      </if>
+      <if test="operatorUserName != null">
+        OPERATOR_USER_NAME,
+      </if>
+      <if test="operatorUserTime != null">
+        OPERATOR_USER_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="billId != null">
+        #{billId,jdbcType=CHAR},
+      </if>
+      <if test="billType != null">
+        #{billType,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null">
+        #{companyId,jdbcType=CHAR},
+      </if>
+      <if test="companyName != null">
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountId != null">
+        #{accountId,jdbcType=CHAR},
+      </if>
+      <if test="accountName != null">
+        #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorType != null">
+        #{operatorType,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorUserId != null">
+        #{operatorUserId,jdbcType=CHAR},
+      </if>
+      <if test="operatorUserName != null">
+        #{operatorUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorUserTime != null">
+        #{operatorUserTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="selectByBillRead" parameterType="com.gupao.vip.pojo.BillRead" resultMap="BaseResultMap">
+    select
+      <include refid="Base_Column_List"/>
+    FROM
+      ext_bill_read
+    WHERE
+      bill_id=#{billId}
+  </select>
+
+</mapper>

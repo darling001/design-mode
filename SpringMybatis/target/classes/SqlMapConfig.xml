@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <typeAliases>
+        <typeAlias type="com.gupao.vip.handler.LongTypeHandler" alias="LongTypeHandler"/>
+        <typeAlias type="com.gupao.vip.handler.StringHandler" alias="StringTypeHandler"/>
+    </typeAliases>
+
+     <!--配置分页插件 -->
+    <!--<plugins>-->
+        <!--&lt;!&ndash;&lt;!&ndash;<plugin interceptor="com.github.pagehelper.PageHelper">&ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash; 设置数据库类型 Oracle,Mysql,MariaDB,SQLite,Hsqldb,PostgreSQL六种数据库&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;&lt;!&ndash;<property name="dialect" value="mysql"/>&ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;&lt;!&ndash;</plugin>&ndash;&gt;&ndash;&gt;-->
+        <!--<plugin interceptor="com.gupao.vip.plugin.SqlPlugin">-->
+        <!--</plugin>-->
+        <!--&lt;!&ndash;&lt;!&ndash;<plugin interceptor="com.unhz.generator.plugin.PageInterceptor"/>&ndash;&gt;&ndash;&gt;-->
+    <!--</plugins>-->
+
+
+
+
+</configuration>

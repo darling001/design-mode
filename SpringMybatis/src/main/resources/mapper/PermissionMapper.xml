@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gupao.vip.mapper.PermissionMapper">
+  <resultMap id="BaseResultMap" type="com.gupao.vip.pojo.Permission">
+    <id column="permission_id" jdbcType="VARCHAR" property="permissionId"></id>
+    <id column="role_id" jdbcType="VARCHAR" property="roleId"></id>
+    <result column="permission_name" jdbcType="VARCHAR" property="permissionName"/>
+  </resultMap>
+
+  <select id="selectPermissionByRoleId" resultType="com.gupao.vip.pojo.Permission" parameterType="java.lang.String">
+    SELECT
+      permission_id AS permissionId,
+      role_id AS roleId,
+      permission_name AS permissionName
+    FROM
+      gp_permission
+    WHERE role_id = #{roleId}
+  </select>
+
+
+</mapper>
