@@ -71,6 +71,7 @@ public class PeopleTest {
 
     @Test
     public void hahaha(){
+        System.out.println("1");
         People people = peopleMapper.selectPeopleById(1);
         System.out.println(people);
     }

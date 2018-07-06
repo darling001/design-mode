@@ -5,10 +5,22 @@
     <option name="id" value="1528941091378" />
     <option name="name" value="default" />
   </component>
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/../SpringMybatis" />
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/../factory/pom.xml" />
+        <option value="$PROJECT_DIR$/../prototype/pom.xml" />
+        <option value="$PROJECT_DIR$/../Jvms/pom.xml" />
+        <option value="$PROJECT_DIR$/../proxy/pom.xml" />
+        <option value="$PROJECT_DIR$/../reflect/pom.xml" />
+        <option value="$PROJECT_DIR$/../singleton/pom.xml" />
+        <option value="$PROJECT_DIR$/../SpringMybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/../strategy/pom.xml" />
+        <option value="$PROJECT_DIR$/../template/pom.xml" />
       </list>
     </option>
   </component>

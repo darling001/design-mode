@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="delegate" />
+        <module name="factory" />
+        <module name="Jvms" />
+        <module name="prototype" />
+        <module name="proxy" />
+        <module name="reflect" />
+        <module name="singleton" />
+        <module name="Spring-Mybatis" />
+        <module name="strategy" />
+        <module name="template" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="delegate" target="1.5" />
+      <module name="factory" target="1.5" />
+      <module name="Jvms" target="1.5" />
+      <module name="prototype" target="1.5" />
+      <module name="proxy" target="1.6" />
+      <module name="reflect" target="1.8" />
+      <module name="singleton" target="1.5" />
+      <module name="Spring-Mybatis" target="1.8" />
+      <module name="strategy" target="1.5" />
+      <module name="template" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
