@@ -23,14 +23,15 @@ public class ResultHandler {
         Object property = new DefaultObjectFactory().create(classType);
         if(rs.next()){
             for(Field field: classType.getDeclaredFields()){
-                int i=0;
-                setValue(property, field, rs, i);
+//                int i=0;
+ //               setValue(property, field, rs, i);
+                setValue(property, field, rs);
             }
         }
         return (T)property;
     }
 
-    public void setValue(Object property, Field field, ResultSet rs, int i) throws NoSuchMethodException, SQLException, InvocationTargetException, IllegalAccessException {
+    public void setValue(Object property, Field field, ResultSet rs) throws NoSuchMethodException, SQLException, InvocationTargetException, IllegalAccessException {
         Method setMethod = property.getClass().getMethod("set" + upperField(field.getName()),field.getType());
         setMethod.invoke(property,getValue(field,rs));
     }

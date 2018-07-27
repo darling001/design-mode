@@ -19,7 +19,7 @@ public class ThreadSafeTest {
         int count = 200;
 
         //发令枪，我就能想到运动员
-        CountDownLatch latch = new CountDownLatch(count);
+        final CountDownLatch latch = new CountDownLatch(count);
 
         long start = System.currentTimeMillis();
         for (int i = 0; i < count;i ++) {

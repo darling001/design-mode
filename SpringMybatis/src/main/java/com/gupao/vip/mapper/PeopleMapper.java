@@ -14,8 +14,8 @@ import org.apache.ibatis.annotations.Select;
  * Description:
  */
 public interface PeopleMapper {
-   // @Select(value = "select * from people where id = ?")
-    @Select(value = "select * from people where id = #{id}")
+    @Select(value = "select * from people where id = ?")
+ //   @Select(value = "select * from people where id = #{id}")
     People selectPeopleById(@Param("id") Integer id);
 
     People selectPeople(PeopleParam peopleParam);

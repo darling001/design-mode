@@ -11,13 +11,15 @@ import com.gupao.vip.service.PeopleService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA
@@ -87,6 +89,10 @@ public class PeopleTest {
         set.add("3");
         map.put(2,set);
         System.out.println(map);
+        ClassPathResource resource = new ClassPathResource("");
+        DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
+        XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(factory);
+
     }
 
     @Test
@@ -99,4 +105,26 @@ public class PeopleTest {
 //        peopleParam.setSex();
         peopleService.selectPeopleByParam(peopleParam);
     }
+
+    @Test
+    public void aaa(){
+        Long a = 1531324800000L;
+        Date date = new Date(a);
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String dateStr = format.format(date);
+        System.out.println(dateStr);
+    }
+
+    @Test
+    public void selectPeople2(){
+        PeopleParam peopleParam = new PeopleParam();
+        peopleParam.setId(1);
+        peopleParam.setAge(26);
+        peopleParam.setId(1);
+        peopleParam.setJob("java程序员");
+        People people = peopleMapper.selectPeople(peopleParam);
+        System.out.println(people);
+    }
+
+
 }
