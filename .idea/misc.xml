@@ -6,12 +6,15 @@
     <option name="name" value="default" />
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/SpringIOC" />
     <file type="web" url="file://$PROJECT_DIR$/SpringMybatis" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/SpringMybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringJDBC/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringIOC/pom.xml" />
       </list>
     </option>
   </component>

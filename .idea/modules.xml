@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SpringMybatis/Spring-Mybatis.iml" filepath="$PROJECT_DIR$/SpringMybatis/Spring-Mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringIOC/SpringIOC.iml" filepath="$PROJECT_DIR$/SpringIOC/SpringIOC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringJDBC/SpringJDBC.iml" filepath="$PROJECT_DIR$/SpringJDBC/SpringJDBC.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/design-mode.iml" filepath="$PROJECT_DIR$/.idea/design-mode.iml" />
     </modules>
   </component>
